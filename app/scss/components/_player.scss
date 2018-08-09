@@ -34,17 +34,13 @@
             padding: 15px 35px 0px 35px;
             display: flex;
             justify-content: space-between;
-            p,
-            i {
+            p, i {
                 margin: 0;
                 color: white;
-                font-size: 28px;
+                font-size: 22px;
             }
             p {
                 color: #ddd;
-            }
-            i {
-                font-size: 32px;
             }
         }
         .progress {
@@ -83,7 +79,7 @@
             padding: 15px 50px 0px 50px;
             i {
                 color: white;
-                font-size: 32px;
+                font-size: 42px;
             }
             .pause {
                 display: none;

@@ -133,15 +133,12 @@ input[type=range]:focus::-ms-fill-upper {
     padding: 15px 35px 0px 35px;
     display: flex;
     justify-content: space-between; }
-    .player .player-ui .small p,
-    .player .player-ui .small i {
+    .player .player-ui .small p, .player .player-ui .small i {
       margin: 0;
       color: white;
-      font-size: 28px; }
+      font-size: 22px; }
     .player .player-ui .small p {
       color: #ddd; }
-    .player .player-ui .small i {
-      font-size: 32px; }
   .player .player-ui .progress {
     cursor: pointer;
     position: relative;
@@ -173,7 +170,7 @@ input[type=range]:focus::-ms-fill-upper {
     padding: 15px 50px 0px 50px; }
     .player .player-ui .controls i {
       color: white;
-      font-size: 32px; }
+      font-size: 42px; }
     .player .player-ui .controls .pause {
       display: none; }
 
