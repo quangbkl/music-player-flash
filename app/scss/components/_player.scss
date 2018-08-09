@@ -46,18 +46,18 @@
         .progress {
             cursor: pointer;
             position: relative;
-            height: 5px;
+            height: 2px;
             margin: 60px 20px 0px 20px;
             background: rgba(255, 255, 255, 0.3);
             .played {
                 width: 0;
-                height: 5px;
+                height: 2px;
                 position: absolute;
                 background: #F44336;
             }
             .loaded {
                 width: 90%;
-                height: 5px;
+                height: 2px;
                 position: absolute;
                 background: white;
             }
