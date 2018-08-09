@@ -1,6 +1,11 @@
 const $loaded = $('.loaded');
 const $played = $('.played');
 const $range_load = $('.range_load');
+const $src_music = $('#src_music');
+const $play_arrow = $('.play_arrow');
+const $pause = $('.pause');
+const $skip_previous = $('.skip_previous');
+const $skip_next = $('.skip_next');
 
 const handleChangeRange = () => {
     const inputValue = $range_load.val();
@@ -11,9 +16,28 @@ const handleChangeRange = () => {
     });
 }
 
+const handleClickPlay = () => {
+    console.log("Play");
+    $src_music[0].play();
+    $pause.show();
+    $play_arrow.hide();
+}
+
+const handleClickPause = () => {
+    console.log("pause");
+    $src_music[0].pause();
+    $pause.hide();
+    $play_arrow.show();
+}
+
+$play_arrow.click(handleClickPlay);
+$pause.click(handleClickPause);
+
 $range_load.on({
     'input': handleChangeRange
 });
+
+
 
 //Bottom menu
 var menuIndex = 2;
@@ -42,36 +66,4 @@ function showMenu(n) {
     slides[menuIndex - 1].style.display = "block";
     buttonItem[menuIndex - 1].className += " active";
 }
-//Bottom menu
-
-//Full screen
-var elem = document.getElementsByClassName('container')[0];
-openFullscreen();
-
-/* View in fullscreen */
-function openFullscreen() {
-    console.log('Full')
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.mozRequestFullScreen) { /* Firefox */
-    elem.mozRequestFullScreen();
-  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { /* IE/Edge */
-    elem.msRequestFullscreen();
-  }
-}
-
-/* Close fullscreen */
-function closeFullscreen() {
-  if (document.exitFullscreen) {
-    document.exitFullscreen();
-  } else if (document.mozCancelFullScreen) { /* Firefox */
-    document.mozCancelFullScreen();
-  } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
-    document.webkitExitFullscreen();
-  } else if (document.msExitFullscreen) { /* IE/Edge */
-    document.msExitFullscreen();
-  }
-}
-//Full screen
+//Bottom menu   
