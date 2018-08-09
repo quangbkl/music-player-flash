@@ -1,0 +1,22 @@
+.container {
+    position: relative;
+    margin: auto;
+
+    .item {
+        display: none;
+    }
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background: white;
+    border-top: 1px solid #aaaaaa;
+
+    i {
+        padding: 5px;
+    }
+}

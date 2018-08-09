@@ -1,55 +1,72 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Learn English</title>
 	<link rel="stylesheet" type="text/css" href="./css/my-styles.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<script src="./js/jquery.min.js"></script>
 </head>
+
 <body>
-	<div class="player">
-		<div class="player-ui">
-			<div class="title">
-				<h3>Faded</h3>
+	<div class="container">
+		<div class="list-item">
+			<div class="item">
+				3
+			</div>
+			
+			<div class="item">
+				<div class="player">
+					<div class="player-ui">
+						<div class="title">
+							<h3>Faded</h3>
+						</div>
+
+						<div class="small">
+							<i class="material-icons">replay</i>
+							<p>Adele</p>
+							<i class="material-icons">volume_up</i>
+						</div>
+
+						<div class="progress">
+							<div class="loaded"></div>
+							<div class="played"></div>
+							<input id="range" class="range_load" type="range" min="0" max="100" value="0">
+						</div>
+
+						<div class="time">
+							<span class="time_played">00:00</span>
+							<span class="full_time">00:00</span>
+						</div>
+
+						<div class="controls">
+							<i class="material-icons skip_previous">skip_previous</i>
+							<i class="material-icons play_arrow">play_arrow</i>
+							<i class="material-icons pause">pause</i>
+							<i class="material-icons skip_next">skip_next</i>
+						</div>
+					</div>
+
+					<audio id="src_music" controls>
+						<source src="./musics/The_Flash_Season_1_1.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+					</audio>
+				</div>
 			</div>
 
-			<div class="small">
-				<i class="material-icons">replay</i>
-				<p>Adele</p>
-				<i class="material-icons">volume_up</i>
-			</div>
-
-			<div class="progress">
-				<div class="loaded"></div>
-				<div class="played"></div>
-				<input id="range" class="range_load" type="range" min="0" max="100" value="0">
-			</div>
-
-			<div class="time">
-				<span class="time_played">00:00</span>
-				<span class="full_time">00:00</span>
-			</div>
-
-			<div class="controls">
-				<i class="material-icons skip_previous">skip_previous</i>
-				<i class="material-icons play_arrow">play_arrow</i>
-				<i class="material-icons pause">pause</i>
-				<i class="material-icons skip_next">skip_next</i>
+			<div class="item">
+				3
 			</div>
 		</div>
-
 		<div class="nav">
-			<i class="material-icons">playlist_play</i>
-			<i class="material-icons">home</i>
-			<i class="material-icons">queue_music</i>
+			<i class="material-icons" onclick="currentSlide(1)">playlist_play</i>
+			<i class="material-icons" onclick="currentSlide(2)">home</i>
+			<i class="material-icons" onclick="currentSlide(3)">queue_music</i>
 		</div>
-
-		<audio id="src_music" controls>
-			<source src="./musics/The_Flash_Season_1_1.mp3" type="audio/mpeg">
-			Your browser does not support the audio element.
-		</audio>
 	</div>
 
-<script src="./js/main.js"></script>
+
+
+	<script src="./js/main.js"></script>
 </body>
+
 </html>
