@@ -98,7 +98,8 @@ input[type=range]:focus::-ms-fill-upper {
   background: white;
   border-top: 1px solid #aaaaaa; }
   .nav i {
-    padding: 5px; }
+    padding: 5px;
+    font-size: 36px; }
 
 .player {
   background-color: rgba(0, 0, 0, 0.7);
@@ -126,7 +127,7 @@ input[type=range]:focus::-ms-fill-upper {
     .player .player-ui .title h3 {
       margin: 0;
       color: white;
-      font-size: 30px;
+      font-size: 60px;
       font-weight: 100; }
   .player .player-ui .small {
     padding: 15px 35px 0px 35px;
@@ -136,16 +137,16 @@ input[type=range]:focus::-ms-fill-upper {
     .player .player-ui .small i {
       margin: 0;
       color: white;
-      font-size: 14px; }
+      font-size: 28px; }
     .player .player-ui .small p {
       color: #ddd; }
     .player .player-ui .small i {
-      font-size: 16px; }
+      font-size: 32px; }
   .player .player-ui .progress {
     cursor: pointer;
     position: relative;
-    height: 2px;
-    margin: 30px 20px 0px 20px;
+    height: 5px;
+    margin: 60px 20px 0px 20px;
     background: rgba(255, 255, 255, 0.3); }
     .player .player-ui .progress .played {
       width: 0;
@@ -165,7 +166,7 @@ input[type=range]:focus::-ms-fill-upper {
     margin: 8px 20px 0px 20px;
     display: flex;
     justify-content: space-between;
-    font-size: 14px; }
+    font-size: 28px; }
   .player .player-ui .controls {
     display: flex;
     justify-content: space-between;
