@@ -4,6 +4,7 @@
 	<title>Learn English</title>
 	<link rel="stylesheet" type="text/css" href="./css/my-styles.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script src="./js/jquery.min.js"></script>
 </head>
 <body>
 	<div class="player">
@@ -19,15 +20,21 @@
 			</div>
 
 			<div class="progress">
-				<div class="played">
-					<div class="circle"></div>
-				</div>
+				<div class="loaded"></div>
+				<div class="played"></div>
+				<input id="range" class="range_load" type="range" min="0" max="100" value="0">
+			</div>
+
+			<div class="time">
+				<span class="time_played">00:00</span>
+				<span class="full_time">00:00</span>
 			</div>
 
 			<div class="controls">
-				<i class="material-icons">skip_previous</i>
-				<i class="material-icons">play_arrow</i>
-				<i class="material-icons">skip_next</i>
+				<i class="material-icons skip_previous">skip_previous</i>
+				<i class="material-icons play_arrow">play_arrow</i>
+				<i class="material-icons pause">pause</i>
+				<i class="material-icons skip_next">skip_next</i>
 			</div>
 		</div>
 
@@ -36,6 +43,13 @@
 			<i class="material-icons">home</i>
 			<i class="material-icons">queue_music</i>
 		</div>
+
+		<audio id="src_music" controls>
+			<source src="./musics/The_Flash_Season_1_1.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
 	</div>
+
+<script src="./js/main.js"></script>
 </body>
 </html>
