@@ -1,7 +1,8 @@
 input[type=range] {
   -webkit-appearance: none;
   width: 100%;
-  margin: 3.5px 0; }
+  margin: 3.5px 0;
+  background: none; }
 
 input[type=range]:focus {
   outline: none; }
@@ -9,42 +10,27 @@ input[type=range]:focus {
 input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
   height: 3px;
-  cursor: pointer;
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
-  background: rgba(0, 0, 0, 0);
-  border-radius: 0px;
-  border: 0px solid rgba(0, 0, 0, 0); }
+  cursor: pointer; }
 
 input[type=range]::-webkit-slider-thumb {
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
-  border: 0px solid rgba(0, 0, 0, 0);
   height: 10px;
   width: 10px;
   border-radius: 50px;
-  background: #ff32f6;
+  background: #F44336;
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -3.5px; }
 
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: rgba(28, 28, 28, 0); }
-
 input[type=range]::-moz-range-track {
   width: 100%;
   height: 3px;
-  cursor: pointer;
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
-  background: rgba(0, 0, 0, 0);
-  border-radius: 0px;
-  border: 0px solid rgba(0, 0, 0, 0); }
+  cursor: pointer; }
 
 input[type=range]::-moz-range-thumb {
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
-  border: 0px solid rgba(0, 0, 0, 0);
   height: 10px;
   width: 10px;
   border-radius: 50px;
-  background: #ff32f6;
+  background: #F44336;
   cursor: pointer; }
 
 input[type=range]::-ms-track {
@@ -55,33 +41,13 @@ input[type=range]::-ms-track {
   border-color: transparent;
   color: transparent; }
 
-input[type=range]::-ms-fill-lower {
-  background: rgba(0, 0, 0, 0);
-  border: 0px solid rgba(0, 0, 0, 0);
-  border-radius: 0px;
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0); }
-
-input[type=range]::-ms-fill-upper {
-  background: rgba(0, 0, 0, 0);
-  border: 0px solid rgba(0, 0, 0, 0);
-  border-radius: 0px;
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0); }
-
 input[type=range]::-ms-thumb {
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
-  border: 0px solid rgba(0, 0, 0, 0);
   height: 10px;
   width: 10px;
   border-radius: 50px;
-  background: #ff32f6;
+  background: #F44336;
   cursor: pointer;
   height: 3px; }
-
-input[type=range]:focus::-ms-fill-lower {
-  background: rgba(0, 0, 0, 0); }
-
-input[type=range]:focus::-ms-fill-upper {
-  background: rgba(28, 28, 28, 0); }
 
 .container {
   position: relative;
@@ -106,7 +72,7 @@ input[type=range]:focus::-ms-fill-upper {
   overflow: hidden;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.6);
   position: relative;
-  height: 100vh;
+  height: 90vh;
   background-size: contain;
   background-repeat: no-repeat; }
   .player::after {
@@ -146,7 +112,7 @@ input[type=range]:focus::-ms-fill-upper {
     margin: 60px 20px 0px 20px;
     background: rgba(255, 255, 255, 0.3); }
     .player .player-ui .progress .played {
-      width: 20px;
+      width: 0;
       height: 2px;
       position: absolute;
       background: #F44336; }
@@ -184,4 +150,4 @@ i {
   cursor: pointer; }
 
 .container {
-  height: 100vh; }
+  height: 90vh; }
