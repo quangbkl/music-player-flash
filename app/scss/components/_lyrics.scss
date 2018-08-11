@@ -2,9 +2,21 @@
     background: green;
     margin: 0;
     padding: 0;
-    overflow: scroll;
+    overflow-y: scroll;
     height: 300px;
-    h4, p {
-        margin: 0;
+
+    li {
+        // margin-top: 1px;
+        // border: 1px solid white;
+        border-bottom: 1px solid #ddd;
+
+        p {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        small > p {
+            font-size: 14px;
+        }
     }
 }
