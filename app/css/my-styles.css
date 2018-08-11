@@ -129,16 +129,18 @@ input[type=range]::-ms-thumb {
   margin: 0;
   padding: 0;
   overflow-y: scroll;
-  height: calc(100% - 47px); }
+  height: calc(100% - 47px);
+  color: rgba(255, 255, 255, 0.8); }
   .lyrics li {
-    border-bottom: 1px solid #ddd; }
+    border-bottom: 1px solid rgba(221, 221, 221, 0.4); }
     .lyrics li p {
-      font-size: 18px;
+      font-size: 16px;
       margin: 0; }
     .lyrics li small > p {
       font-size: 14px; }
     .lyrics li.active-lyrics {
-      background-color: aqua; }
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white; }
 
 html {
   font-family: "Roboto",sans-serif;
