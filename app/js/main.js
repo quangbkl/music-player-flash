@@ -1,3 +1,5 @@
+const baseUrl = 'http://localhost/API/music';
+
 const $loaded = $('.loaded');
 const $played = $('.played');
 const $range_load = $('.range_load');
@@ -10,6 +12,7 @@ const $time_played = $('.time_played');
 const $full_time = $('.full_time');
 const $lyrics = $('.lyrics');
 const $active_lyrics = $('.active-lyrics');
+const $list_music = $('.list-music');
 
 const changeStyleRange = () => {
     const inputValue = $range_load.val();
@@ -140,3 +143,49 @@ function formatTime(time) {
 //     // Animation complete.
 //   });
 //Scroll lyrics
+
+//List music
+const setMusic = (id) => () => {
+    console.log("Set Music");
+}
+
+const setListMusic = (listMusic) => {
+    if (listMusic.hasOwnProperty('success') && listMusic.success === true) {
+        listMusic.data.map(music => {
+            createItemMusic(music);
+        })
+    }
+    // console.log(listMusic);
+}
+
+function createItemMusic(data_music) {
+    console.log(data_music.name);
+    const itemMusic = document.createElement("LI");
+    itemMusic.innerHTML = data_music.name;
+    itemMusic.onclick = setMusic(data_music.id);
+
+    $list_music.append(itemMusic);
+}
+//List music
+
+//Services
+
+getListMusic();
+// getMusic();
+
+function getListMusic() {
+    $.get(baseUrl + "/list-musics.php", function (result) {
+        setListMusic(result);
+    })
+}
+
+function getMusic() {
+    const data_music = {
+        id: 'BKL'
+    }
+
+    $.post(baseUrl + "/music.php", data_music, function (result) {
+        console.log(result);
+    })
+}
+//Services
