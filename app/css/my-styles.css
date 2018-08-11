@@ -134,10 +134,10 @@ input[type=range]::-ms-thumb {
   .lyrics li {
     border-bottom: 1px solid #ddd; }
     .lyrics li p {
-      font-size: 16px;
+      font-size: 24px;
       margin: 0; }
     .lyrics li small > p {
-      font-size: 14px; }
+      font-size: 22px; }
 
 html {
   font-family: "Roboto",sans-serif;
