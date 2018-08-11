@@ -126,18 +126,17 @@ input[type=range]::-ms-thumb {
     display: none; }
 
 .lyrics {
-  background: green;
   margin: 0;
   padding: 0;
   overflow-y: scroll;
-  height: 300px; }
+  height: calc(100% - 47px); }
   .lyrics li {
     border-bottom: 1px solid #ddd; }
     .lyrics li p {
-      font-size: 24px;
+      font-size: 18px;
       margin: 0; }
     .lyrics li small > p {
-      font-size: 22px; }
+      font-size: 14px; }
     .lyrics li.active-lyrics {
       background-color: aqua; }
 

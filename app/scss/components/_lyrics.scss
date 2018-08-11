@@ -1,9 +1,9 @@
 .lyrics {
-    background: green;
+    // background: green;
     margin: 0;
     padding: 0;
     overflow-y: scroll;
-    height: 300px;
+    height: calc(100% - 47px);
 
     li {
         // margin-top: 1px;
@@ -11,12 +11,12 @@
         border-bottom: 1px solid #ddd;
 
         p {
-            font-size: 24px;
+            font-size: 18px;
             margin: 0;
         }
 
         small > p {
-            font-size: 22px;
+            font-size: 14px;
         }
 
         &.active-lyrics {
