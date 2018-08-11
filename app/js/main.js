@@ -8,6 +8,8 @@ const $skip_previous = $('.skip_previous');
 const $skip_next = $('.skip_next');
 const $time_played = $('.time_played');
 const $full_time = $('.full_time');
+const $lyrics = $('.lyrics');
+const $active_lyrics = $('.active-lyrics');
 
 const changeStyleRange = () => {
     const inputValue = $range_load.val();
@@ -73,7 +75,7 @@ const progressAudio = () => {
     }
 
     $loaded.css({
-        width: maxBuffered * 100 /  duration + '%'
+        width: maxBuffered * 100 / duration + '%'
     });
 }
 
@@ -129,3 +131,7 @@ function formatTime(time) {
     return (minute < 10 ? '0' : '') + minute + (secconds < 10 ? ':0' : ':') + secconds;
 }
 //Format time
+
+//Scroll lyrics
+$lyrics[0].scrollTop = $active_lyrics.offset().top;
+//Scroll lyrics

@@ -138,6 +138,8 @@ input[type=range]::-ms-thumb {
       margin: 0; }
     .lyrics li small > p {
       font-size: 22px; }
+    .lyrics li.active-lyrics {
+      background-color: aqua; }
 
 html {
   font-family: "Roboto",sans-serif;
