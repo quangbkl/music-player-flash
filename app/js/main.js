@@ -18,18 +18,22 @@ const changeStyleRange = () => {
     });
 }
 
-const handleClickPlay = () => {
-    console.log("Play");
-    $src_music[0].play();
+const onPauseAudio = () => {
+    $pause.hide();
+    $play_arrow.show();
+}
+
+const onPlayAudio = () => {
     $pause.show();
     $play_arrow.hide();
 }
 
+const handleClickPlay = () => {
+    $src_music[0].play();
+}
+
 const handleClickPause = () => {
-    console.log("pause");
     $src_music[0].pause();
-    $pause.hide();
-    $play_arrow.show();
 }
 
 const timeUpdateAudio = () => {
@@ -83,7 +87,9 @@ $range_load.on({
 $src_music.on({
     'timeupdate': timeUpdateAudio,
     'loadeddata': handleLoadedData,
-    'progress': progressAudio
+    'progress': progressAudio,
+    'pause': onPauseAudio,
+    'play': onPlayAudio
 })
 
 //Bottom menu
