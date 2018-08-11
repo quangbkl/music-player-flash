@@ -132,15 +132,26 @@ input[type=range]::-ms-thumb {
   height: calc(100% - 47px);
   color: rgba(255, 255, 255, 0.8); }
   .lyrics li {
-    border-bottom: 1px solid rgba(221, 221, 221, 0.4); }
+    border-bottom: 1px solid rgba(221, 221, 221, 0.4);
+    padding: 0 20px; }
     .lyrics li p {
       font-size: 16px;
-      margin: 0; }
+      margin: 5px 0; }
     .lyrics li small > p {
       font-size: 14px; }
     .lyrics li.active-lyrics {
       background-color: rgba(0, 0, 0, 0.6);
       color: white; }
+
+.list-music {
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+  height: calc(100% - 47px);
+  color: rgba(255, 255, 255, 0.8); }
+  .list-music li {
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(221, 221, 221, 0.4); }
 
 html {
   font-family: "Roboto",sans-serif;

@@ -1,0 +1,12 @@
+.list-music {
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+    height: calc(100% - 47px);
+    color: rgba(white, 0.8);
+
+    li {
+        padding: 10px 20px;
+        border-bottom: 1px solid rgba(#ddd, 0.4);
+    }
+}

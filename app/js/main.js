@@ -133,8 +133,10 @@ function formatTime(time) {
 //Format time
 
 //Scroll lyrics
-$lyrics[0].scrollTop = $active_lyrics.offset().top;
-$lyrics[0].animate({
-    scrollTop: $active_lyrics.offset().top
-}, 500);
+// $lyrics[0].scrollTop = $active_lyrics.offset().top;
+// $lyrics[0].animate({
+//     scrollTop: $active_lyrics.offset().top
+//   }, 5000, function() {
+//     // Animation complete.
+//   });
 //Scroll lyrics
