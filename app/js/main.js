@@ -6,8 +6,10 @@ const $play_arrow = $('.play_arrow');
 const $pause = $('.pause');
 const $skip_previous = $('.skip_previous');
 const $skip_next = $('.skip_next');
+const $time_played = $('.time_played');
+const $full_time = $('.full_time');
 
-const handleChangeRange = () => {
+const changeStyleRange = () => {
     const inputValue = $range_load.val();
     const inputMax = $range_load[0].max;
 
@@ -30,6 +32,47 @@ const handleClickPause = () => {
     $play_arrow.show();
 }
 
+const timeUpdateAudio = () => {
+    let currentTime = $src_music[0].currentTime;
+    let duration = $src_music[0].duration;
+
+    $range_load[0].max = duration;
+    $range_load[0].value = currentTime;
+
+    $time_played.text(formatTime(currentTime));
+
+    changeStyleRange();
+}
+
+const handleChangeRange = () => {
+    $src_music[0].currentTime = $range_load.val();
+    changeStyleRange();
+}
+
+const handleLoadedData = () => {
+    const duration = $src_music[0].duration;
+    $range_load[0].max = duration;
+    $full_time.text(formatTime(duration));
+}
+
+const progressAudio = () => {
+    const buffered = $src_music[0].buffered;
+    // console.log(buffered);
+    const duration = $src_music[0].duration;
+    const currentTime = $src_music[0].currentTime;
+    let maxBuffered = currentTime;
+
+    for (let i = 0; i < buffered.length; i++) {
+        if (buffered.start(i) <= currentTime && currentTime <= buffered.end(i) && buffered.end(i) > maxBuffered) {
+            maxBuffered = buffered.end(i);
+        }
+    }
+
+    $loaded.css({
+        width: maxBuffered * 100 /  duration + '%'
+    });
+}
+
 $play_arrow.click(handleClickPlay);
 $pause.click(handleClickPause);
 
@@ -37,7 +80,11 @@ $range_load.on({
     'input': handleChangeRange
 });
 
-
+$src_music.on({
+    'timeupdate': timeUpdateAudio,
+    'loadeddata': handleLoadedData,
+    'progress': progressAudio
+})
 
 //Bottom menu
 var menuIndex = 2;
@@ -67,3 +114,12 @@ function showMenu(n) {
     buttonItem[menuIndex - 1].className += " active";
 }
 //Bottom menu   
+
+//Format time
+function formatTime(time) {
+    const secconds = parseInt(time % 60);
+    const minute = parseInt(time / 60);
+
+    return (minute < 10 ? '0' : '') + minute + (secconds < 10 ? ':0' : ':') + secconds;
+}
+//Format time
