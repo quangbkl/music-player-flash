@@ -92,7 +92,7 @@ const onPlayAudio = () => {
 }
 
 const handleClickPlay = () => {
-    $src_music[0].play();
+    !!$src_music[0].src && $src_music[0].play();
 }
 
 const handleClickPause = () => {
