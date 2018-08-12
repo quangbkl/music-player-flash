@@ -36,6 +36,7 @@ const setSrcAudio = (srcAudio) => {
     $src_music[0].pause();
     setTimeout(() => {
         $src_music[0].src = srcAudio;
+        $('#message').text(srcAudio);
     }, 5);
 }
 
