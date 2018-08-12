@@ -36,7 +36,7 @@ const setSrcAudio = (srcAudio) => {
     $src_music[0].pause();
     setTimeout(() => {
         $src_music[0].src = srcAudio;
-        $('#message').text(srcAudio);
+        // $('#message').text(srcAudio);
     }, 5);
 }
 
@@ -269,7 +269,7 @@ function getMusic(id) {
     }
 
     $.post(baseUrl + "/music.php", data_music, function (result) {
-        // list_lyrics = result.data[0].lyrics;
+        list_lyrics = result.data[0].lyrics;
         createLyrics(result);
         setSrcAudio(result.data[0].src);
     })
