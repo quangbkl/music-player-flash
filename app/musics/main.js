@@ -1,5 +1,4 @@
-// const baseUrl = 'http://localhost/API/music';
-const baseUrl = 'https://rankgroupqd.000webhostapp.com/list-musics';
+const baseUrl = 'https://service.doanvanquang.com/music';
 
 const $loaded = $('.loaded');
 const $played = $('.played');
