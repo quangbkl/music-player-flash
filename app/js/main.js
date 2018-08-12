@@ -14,6 +14,8 @@ const $lyrics = $('.lyrics');
 const $active_lyrics = $('.active-lyrics');
 const $list_music = $('.list-music');
 
+let list_lyrics = [];
+
 const changeStyleRange = () => {
     const inputValue = $range_load.val();
     const inputMax = $range_load[0].max;
@@ -21,6 +23,53 @@ const changeStyleRange = () => {
     $played.css({
         width: inputValue * 100 / inputMax + '%'
     });
+}
+
+const scrollLyric = (scroll) => {
+    $lyrics.animate({
+        scrollTop: $lyrics[0].scrollTop + scroll + 'px'
+    }, 1000, "swing");
+}
+
+let previousTime = 0;
+const changeActiveList = () => {
+    const currentTime = $src_music[0].currentTime;
+    // console.log(currentTime);
+    let lengthScroll = 0;
+    let eActiveLyric = null;
+
+    list_lyrics.map(lyric => {
+        const timeLyrics = parseFloat(lyric.start, 10);
+
+        if (currentTime >= timeLyrics && timeLyrics > previousTime) {
+            $('li').removeClass('active-lyrics');
+            let activeLyric = lyric.start.replace('.', '_');
+            eActiveLyric = $('#' + activeLyric);
+            // $lyrics[0].scrollTop = 0;
+            // console.log($('#' + activeLyric).offset().top);
+            lengthScroll = $('#' + activeLyric).offset().top;
+            // scrollLyric($('#' + activeLyric).offset().top - 200);
+
+            // console.log(lyric);
+            // console.log(currentTime, timeLyrics, previousTime);
+            previousTime = timeLyrics;
+        }
+    });
+    // console.log(lengthScroll);
+    if (eActiveLyric !== null) {
+        eActiveLyric.addClass("active-lyrics");
+        // console.log("Active");
+    }
+
+    if (lengthScroll !== 0) {
+        scrollLyric(lengthScroll);
+    }
+    // console.log(currentTime);
+}
+
+const setCurrentTime = (newTime) => () => {
+    $src_music[0].currentTime = newTime;
+    previousTime = 0;
 }
 
 const onPauseAudio = () => {
@@ -51,10 +100,12 @@ const timeUpdateAudio = () => {
     $time_played.text(formatTime(currentTime));
 
     changeStyleRange();
+    changeActiveList();
 }
 
 const handleChangeRange = () => {
     $src_music[0].currentTime = $range_load.val();
+    previousTime = $range_load.val();
     changeStyleRange();
 }
 
@@ -159,19 +210,41 @@ const setListMusic = (listMusic) => {
 }
 
 function createItemMusic(data_music) {
-    console.log(data_music.name);
+    // console.log(data_music.name);
     const itemMusic = document.createElement("LI");
     itemMusic.innerHTML = data_music.name;
     itemMusic.onclick = setMusic(data_music.id);
 
     $list_music.append(itemMusic);
 }
+
+const createLyric = (lyric) => {
+    const itemLyric = document.createElement("LI");
+
+    itemLyric.id = lyric.start.replace('.', '_');
+    itemLyric.innerHTML = `<p>${lyric.english}</p>\
+    <small>\
+        <p>${lyric.vietnamese}</p>\
+    </small>`;
+
+    itemLyric.onclick = setCurrentTime(lyric.start);
+
+    $lyrics.append(itemLyric);
+}
+
+const createLyrics = (lyrics) => {
+    if (lyrics.hasOwnProperty('success') && lyrics.success === true) {
+        lyrics.data[0].lyrics.map(lyric => {
+            createLyric(lyric);
+        })
+    }
+}
 //List music
 
 //Services
 
 getListMusic();
-// getMusic();
+getMusic();
 
 function getListMusic() {
     $.get(baseUrl + "/list-musics.php", function (result) {
@@ -185,7 +258,8 @@ function getMusic() {
     }
 
     $.post(baseUrl + "/music.php", data_music, function (result) {
-        console.log(result);
+        list_lyrics = result.data[0].lyrics;
+        createLyrics(result);
     })
 }
 //Services
