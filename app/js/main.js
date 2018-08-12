@@ -28,7 +28,14 @@ const changeStyleRange = () => {
 const scrollLyric = (scroll) => {
     $lyrics.animate({
         scrollTop: $lyrics[0].scrollTop + scroll + 'px'
-    }, 1000, "swing");
+    }, 500, "swing");
+}
+
+const setSrcAudio = (srcAudio) => {
+    $src_music[0].pause();
+    setTimeout(() => {
+        $src_music[0].src = srcAudio;
+    }, 5);
 }
 
 let previousTime = 0;
@@ -197,11 +204,13 @@ function formatTime(time) {
 
 //List music
 const setMusic = (id) => () => {
-    console.log("Set Music");
+    getMusic(id);
 }
 
 const setListMusic = (listMusic) => {
     if (listMusic.hasOwnProperty('success') && listMusic.success === true) {
+        // $list_music.remove('LI');
+
         listMusic.data.map(music => {
             createItemMusic(music);
         })
@@ -214,7 +223,6 @@ function createItemMusic(data_music) {
     const itemMusic = document.createElement("LI");
     itemMusic.innerHTML = data_music.name;
     itemMusic.onclick = setMusic(data_music.id);
-
     $list_music.append(itemMusic);
 }
 
@@ -234,6 +242,7 @@ const createLyric = (lyric) => {
 
 const createLyrics = (lyrics) => {
     if (lyrics.hasOwnProperty('success') && lyrics.success === true) {
+        $(".lyrics li").remove();
         lyrics.data[0].lyrics.map(lyric => {
             createLyric(lyric);
         })
@@ -244,7 +253,7 @@ const createLyrics = (lyrics) => {
 //Services
 
 getListMusic();
-getMusic();
+// getMusic('BKL');
 
 function getListMusic() {
     $.get(baseUrl + "/list-musics.php", function (result) {
@@ -252,14 +261,15 @@ function getListMusic() {
     })
 }
 
-function getMusic() {
+function getMusic(id) {
     const data_music = {
-        id: 'BKL'
+        id,
     }
 
     $.post(baseUrl + "/music.php", data_music, function (result) {
-        list_lyrics = result.data[0].lyrics;
+        // list_lyrics = result.data[0].lyrics;
         createLyrics(result);
+        setSrcAudio(result.data[0].src);
     })
 }
 //Services
