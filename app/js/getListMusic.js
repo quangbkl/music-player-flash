@@ -3,7 +3,6 @@ const baseUrl = 'https://rankgroupqd.000webhostapp.com/list-musics';
 const $loaded = $('.loaded');
 const $played = $('.played');
 const $range_load = $('.range_load');
-// const $src_music = $('#src_music');
 const $play_arrow = $('.play_arrow');
 const $pause = $('.pause');
 const $skip_previous = $('.skip_previous');
@@ -23,33 +22,13 @@ const ghostAudio = {
     isPlay: false
 }
 
-// function autoUpdateTime () {
-//     if (ghostAudio.isPlay) {
-//         ghostAudio.currentTime += 0.01;
-//         timeUpdateAudio();
-//     }
-
-//     runtimeAudio();
-// }
-
 function autoUpdateTime(time) {
     if (ghostAudio.isPlay) {
         ghostAudio.currentTime = Math.round(ghostAudio.currentTime * 10 + time) / 10;
-        // console.log("Timer");
 
-        console.log(ghostAudio.currentTime);
         timeUpdateAudio();
     }
-
-    // console.log("AAAA");
-
-    // runtimeAudio();
 }
-
-// function runtimeAudio() {
-//     setTimeout(autoUpdateTime, 100);
-// }
-// runtimeAudio();
 
 var lastUpdate = new Date().getTime();
 
@@ -60,8 +39,6 @@ setInterval(function () {
     autoUpdateTime(diff);
     lastUpdate = thisUpdate;
 }, 100);
-
-// setInterval(autoUpdateTime, 10);
 
 const scrollLyric = (scroll) => {
     $lyrics.animate({
@@ -135,12 +112,12 @@ const timeUpdateAudio = () => {
 $play_arrow.click(handleClickPlay);
 $pause.click(handleClickPause);
 $skip_previous.click(() => {
-    ghostAudio.currentTime -= 10;
+    ghostAudio.currentTime -= 1;
     if (ghostAudio.currentTime < 0) ghostAudio.currentTime = 0;
     timeUpdateAudio();
 })
 $skip_next.click(() => {
-    ghostAudio.currentTime += 10;
+    ghostAudio.currentTime += 1;
     timeUpdateAudio();
 })
 
