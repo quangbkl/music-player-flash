@@ -23,14 +23,45 @@ const ghostAudio = {
     isPlay: false
 }
 
-function autoUpdateTime() {
+// function autoUpdateTime () {
+//     if (ghostAudio.isPlay) {
+//         ghostAudio.currentTime += 0.01;
+//         timeUpdateAudio();
+//     }
+
+//     runtimeAudio();
+// }
+
+function autoUpdateTime(time) {
     if (ghostAudio.isPlay) {
-        ghostAudio.currentTime += 0.01;
+        ghostAudio.currentTime = Math.round(ghostAudio.currentTime * 10 + time) / 10;
+        // console.log("Timer");
+
+        console.log(ghostAudio.currentTime);
         timeUpdateAudio();
     }
+
+    // console.log("AAAA");
+
+    // runtimeAudio();
 }
 
-var timeIntervalAudio = setInterval(autoUpdateTime, 10);
+// function runtimeAudio() {
+//     setTimeout(autoUpdateTime, 100);
+// }
+// runtimeAudio();
+
+var lastUpdate = new Date().getTime();
+
+setInterval(function () {
+    var thisUpdate = new Date().getTime();
+    var diff = (thisUpdate - lastUpdate);
+    diff = Math.round(diff / 100);
+    autoUpdateTime(diff);
+    lastUpdate = thisUpdate;
+}, 100);
+
+// setInterval(autoUpdateTime, 10);
 
 const scrollLyric = (scroll) => {
     $lyrics.animate({
@@ -95,7 +126,6 @@ const handleClickPause = () => {
 
 const timeUpdateAudio = () => {
     let currentTime = ghostAudio.currentTime;
-    let duration = ghostAudio.duration;
 
     $time_played.text(formatTime(currentTime));
 
