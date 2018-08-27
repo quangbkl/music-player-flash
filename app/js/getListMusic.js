@@ -13,8 +13,11 @@ const $lyrics = $('.lyrics');
 const $englishLyrics = $('.english-lyrics');
 const $active_lyrics = $('.active-lyrics');
 const $list_music = $('.list-music');
+const $translate = $('.translate');
 
 let list_lyrics = [];
+// let saveLyrics = [];
+let translate = true;
 
 const ghostAudio = {
     currentTime: 0,
@@ -109,6 +112,10 @@ const timeUpdateAudio = () => {
     changeActiveList();
 }
 
+const toggleTranslate = () => {
+    $('li small').toggle();
+}
+
 $play_arrow.click(handleClickPlay);
 $pause.click(handleClickPause);
 $skip_previous.click(() => {
@@ -119,6 +126,11 @@ $skip_previous.click(() => {
 $skip_next.click(() => {
     ghostAudio.currentTime += 1;
     timeUpdateAudio();
+})
+$translate.click(() => {
+    // translate = !translate;
+    // createLyrics(saveLyrics);
+    toggleTranslate();
 })
 
 //Bottom menu
@@ -194,6 +206,7 @@ const createLyric = (lyric) => {
 }
 
 const createLyrics = (lyrics) => {
+    // saveLyrics = lyrics;
     if (lyrics.hasOwnProperty('success') && lyrics.success === true) {
         $(".lyrics li").remove();
         lyrics.data[0].lyrics.map(lyric => {
