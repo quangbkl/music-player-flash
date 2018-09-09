@@ -28,8 +28,9 @@ const ghostAudio = {
 function autoUpdateTime(time) {
     if (ghostAudio.isPlay) {
         // ghostAudio.currentTime = Math.round(ghostAudio.currentTime * 10 + time) / 10;
+        // console.log(time / 10);
         ghostAudio.currentTime += time / 10;
-
+        // console.log(ghostAudio.currentTime);
         timeUpdateAudio();
     }
 }
@@ -39,8 +40,8 @@ var lastUpdate = new Date().getTime();
 setInterval(function () {
     var thisUpdate = new Date().getTime();
     var diff = (thisUpdate - lastUpdate);
-    diff = Math.round(diff / 100);
-    autoUpdateTime(diff);
+    // diff = Math.round(diff / 100);
+    autoUpdateTime(diff / 100);
     lastUpdate = thisUpdate;
 }, 100);
 
