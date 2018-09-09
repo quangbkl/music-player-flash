@@ -39,7 +39,7 @@ var lastUpdate = new Date().getTime();
 setInterval(function () {
     var thisUpdate = new Date().getTime();
     var diff = (thisUpdate - lastUpdate);
-    // diff = Math.round(diff / 100);
+    diff = Math.round(diff / 100);
     autoUpdateTime(diff);
     lastUpdate = thisUpdate;
 }, 100);
